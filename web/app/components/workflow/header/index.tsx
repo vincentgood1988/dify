@@ -19,6 +19,7 @@ import {
 import AppPublisher from '../../app/app-publisher'
 import { ToastContext } from '../../base/toast'
 import RunAndHistory from './run-and-history'
+import UndoRedo, { type UndoRedoComponentProps } from './undo-redo'
 import EditingTitle from './editing-title'
 import RunningTitle from './running-title'
 import RestoringTitle from './restoring-title'
