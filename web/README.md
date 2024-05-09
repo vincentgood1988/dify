@@ -1,3 +1,4 @@
+@@ -1,71 +1,73 @@
 # Dify Frontend
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -30,6 +31,10 @@ NEXT_PUBLIC_PUBLIC_API_PREFIX=http://localhost:5001/api
 
 # SENTRY
 NEXT_PUBLIC_SENTRY_DSN=
+
+
+
+
 ```
 
 Finally, run the development server:
