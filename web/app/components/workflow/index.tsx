@@ -224,9 +224,9 @@ const Workflow: FC<WorkflowProps> = memo(({
       ref={workflowContainerRef}
     >
       <CandidateNode />
-      <Header handleRedo={handleHistoryForward} handleUndo={handleHistoryBack} />
+      <Header/>
       <Panel />
-      <Operator />
+      <Operator handleRedo={handleHistoryForward} handleUndo={handleHistoryBack} />
       {
         showFeaturesPanel && <Features />
       }

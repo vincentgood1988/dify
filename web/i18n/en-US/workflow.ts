@@ -1,5 +1,6 @@
 const translation = {
   common: {
+    changeHistory: 'Change History',
     undo: 'Undo',
     redo: 'Redo',
     editing: 'Editing',

@@ -3,7 +3,7 @@ import {
   useEffect,
   useRef,
 } from 'react'
-import { debounce } from 'lodash-es'
+import { type DebouncedFunc, debounce } from 'lodash-es'
 import {
   useStoreApi,
 } from 'reactflow'
@@ -21,11 +21,11 @@ export enum WorkflowHistoryEvent {
   NodeDragStop = 'NodeDragStop',
   NodeChange = 'NodeChange',
   NodeConnect = 'NodeConnect',
-  NodeAdd = 'NodeAdd',
   NodePaste = 'NodePaste',
   NodeDelete = 'NodeDelete',
   EdgeDelete = 'EdgeDelete',
   EdgeDeleteByDeleteBranch = 'EdgeDeleteByDeleteBranch',
+  NodeAdd = 'NodeAdd',
 }
 
 export const useWorkflowHistory = () => {
@@ -35,21 +35,13 @@ export const useWorkflowHistory = () => {
   // Some events may be triggered multiple times in a short period of time.
   // We debounce the history state update to avoid creating multiple history states
   // with minimal changes.
-  const saveStateToHistoryRef = useRef(debounce(() => {
+  const saveStateToHistoryRef = useRef(debounce((event: WorkflowHistoryEvent) => {
     workflowHistoryStore.setState({
+      workflowHistoryEvent: event,
       nodes: store.getState().getNodes(),
       edges: store.getState().edges,
     })
   }, 500))
-
-  useEffect(() => {
-    const currentSaveStateToHistory = saveStateToHistoryRef.current
-
-    return () => {
-      // Cancel the debounced function if the component is unmounted
-      currentSaveStateToHistory.cancel()
-    }
-  }, [])
 
   const saveStateToHistory = useCallback((event: WorkflowHistoryEvent) => {
     switch (event) {
@@ -58,12 +50,12 @@ export const useWorkflowHistory = () => {
       case WorkflowHistoryEvent.NodeDragStop:
       case WorkflowHistoryEvent.NodeChange:
       case WorkflowHistoryEvent.NodeConnect:
-      case WorkflowHistoryEvent.NodeAdd:
       case WorkflowHistoryEvent.NodePaste:
       case WorkflowHistoryEvent.NodeDelete:
       case WorkflowHistoryEvent.EdgeDelete:
       case WorkflowHistoryEvent.EdgeDeleteByDeleteBranch:
-        saveStateToHistoryRef.current()
+      case WorkflowHistoryEvent.NodeAdd:
+        saveStateToHistoryRef.current(event)
         break
       default:
         // We do not create a history state for every event.
@@ -73,8 +65,36 @@ export const useWorkflowHistory = () => {
     }
   }, [])
 
+  const getHistoryLabel = useCallback((event: WorkflowHistoryEvent) => {
+    switch (event) {
+      case WorkflowHistoryEvent.NodeTitleChange:
+        return 'Node Title Change'
+      case WorkflowHistoryEvent.NodeDescriptionChange:
+        return 'Node Description Change'
+      case WorkflowHistoryEvent.NodeDragStop:
+        return 'Node Drag'
+      case WorkflowHistoryEvent.NodeChange:
+        return 'Node Change'
+      case WorkflowHistoryEvent.NodeConnect:
+        return 'Node Connect'
+      case WorkflowHistoryEvent.NodeAdd:
+        return 'Node Add'
+      case WorkflowHistoryEvent.NodePaste:
+        return 'Node Paste'
+      case WorkflowHistoryEvent.NodeDelete:
+        return 'Node Delete'
+      case WorkflowHistoryEvent.EdgeDelete:
+        return 'Edge Delete'
+      case WorkflowHistoryEvent.EdgeDeleteByDeleteBranch:
+        return 'Edge Delete (by other action)'
+      default:
+        return 'Unknown Event'
+    }
+  }, [])
+
   return {
-    store,
+    store: workflowHistoryStore,
     saveStateToHistory,
+    getHistoryLabel,
   }
 }
