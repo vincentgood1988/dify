@@ -13,6 +13,7 @@ import {
   useWorkflowHistory,
 } from '../hooks'
 import type { WorkflowHistoryState } from '../workflow-history-store'
+import { ChangeHistory } from '../../base/icons/src/vender/line/editor'
 import {
   PortalToFollowElem,
   PortalToFollowElemContent,
@@ -20,10 +21,6 @@ import {
 } from '@/app/components/base/portal-to-follow-elem'
 import TooltipPlus from '@/app/components/base/tooltip-plus'
 import { useStore as useAppStore } from '@/app/components/app/store'
-import {
-  ClockFastForward,
-  ClockPlaySlim,
-} from '@/app/components/base/icons/src/vender/line/time'
 import { XClose } from '@/app/components/base/icons/src/vender/line/general'
 
 type ChangeHistoryEntry = {
@@ -136,7 +133,7 @@ const ViewWorkflowHistory = () => {
                 setShowMessageLogModal(false)
               }}
             >
-              <ClockFastForward className={`w-4 h-4 ${open ? 'text-primary-600' : 'text-gray-500'}`} />
+              <ChangeHistory className={`w-4 h-4 hover:bg-black/5 hover:text-gray-700 ${open ? 'text-primary-600' : 'text-gray-500'}`} />
             </div>
           </TooltipPlus>
         </PortalToFollowElemTrigger>
@@ -166,7 +163,7 @@ const ViewWorkflowHistory = () => {
                   {
                     !calculateChangeList.statesCount && (
                       <div className='py-12'>
-                        <ClockPlaySlim className='mx-auto mb-2 w-8 h-8 text-gray-300' />
+                        <ChangeHistory className='mx-auto mb-2 w-8 h-8 text-gray-300' />
                         <div className='text-center text-[13px] text-gray-400'>
                           {'You haven\'t changed anything yet'}
                         </div>

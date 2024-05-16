@@ -14,19 +14,19 @@ const UndoRedo: FC<UndoRedoProps> = ({ handleUndo, handleRedo }) => {
   const { nodesReadOnly } = useNodesReadOnly()
 
   return (
-    <div className='flex items-center px-0.5 h-8 rounded-lg border-[0.5px] border-gray-200 bg-white shadow-xs'>
+    <div className='flex items-center px-0.5 h-8 rounded-lg border-[0.5px] border-gray-200 bg-white text-gray-500 shadow-xs'>
 
       <Tooltip selector={'workflow.common.undo'} content={t('workflow.common.undo')!} >
         <div
           data-tooltip-id='workflow.undo'
           className={`
-        flex items-center px-1.5 h-7 rounded-md text-[13px] font-medium text-primary-600
-        hover:bg-primary-50 cursor-pointer select-none
+        flex items-center px-1.5 h-7 rounded-md text-[13px] font-medium 
+        hover:bg-black/5 hover:text-gray-700 cursor-pointer select-none
         ${nodesReadOnly && 'bg-primary-50 opacity-50 !cursor-not-allowed'}
       `}
           onClick={() => !nodesReadOnly && handleUndo()}
         >
-          <FlipBackward className='mr-1 px-1 h-4 w-6' />
+          <FlipBackward className='h-4 w-4' />
         </div>
       </Tooltip>
 
@@ -34,17 +34,17 @@ const UndoRedo: FC<UndoRedoProps> = ({ handleUndo, handleRedo }) => {
         <div
           data-tooltip-id='workflow.redo'
           className={`
-        flex items-center px-1.5 h-7 rounded-md text-[13px] font-medium text-primary-600
-        hover:bg-primary-50 cursor-pointer select-none
+        flex items-center px-1.5 h-7 rounded-md text-[13px] font-medium 
+        hover:bg-black/5 hover:text-gray-700 cursor-pointer select-none
         ${nodesReadOnly && 'bg-primary-50 opacity-50 !cursor-not-allowed'}
       `}
           onClick={() => !nodesReadOnly && handleRedo()}
         >
-          <FlipForward className='mr-1 px-1 h-4 w-6' />
+          <FlipForward className='h-4 w-4' />
 
         </div>
       </Tooltip>
-      <div className='mx-0.5 w-[0.5px] h-8 bg-gray-200'></div>
+      <div className="mx-[3px] w-[1px] h-3.5 bg-gray-200"></div>
       <ViewWorkflowHistory />
     </div>
   )

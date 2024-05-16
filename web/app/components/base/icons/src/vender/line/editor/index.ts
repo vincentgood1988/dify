@@ -1,5 +1,6 @@
 export { default as AlignLeft } from './AlignLeft'
 export { default as BezierCurve03 } from './BezierCurve03'
+export { default as ChangeHistory } from './ChangeHistory'
 export { default as Colors } from './Colors'
 export { default as Cursor02C } from './Cursor02C'
 export { default as Hand02 } from './Hand02'
