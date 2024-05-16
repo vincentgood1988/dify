@@ -172,7 +172,7 @@ const ViewWorkflowHistory = () => {
                   }
                   <div className='flex flex-col'>
                     {
-                      calculateChangeList.futureStates.map((item: ChangeHistoryEntry, index: number) => (
+                      calculateChangeList.futureStates.map((item: ChangeHistoryEntry) => (
                         <div
                           key={item?.index}
                           className={cn(
@@ -198,7 +198,7 @@ const ViewWorkflowHistory = () => {
                       ))
                     }
                     {
-                      calculateChangeList.pastStates.map((item: ChangeHistoryEntry, index: number) => (
+                      calculateChangeList.pastStates.map((item: ChangeHistoryEntry) => (
                         <div
                           key={item?.index}
                           className={cn(
@@ -251,7 +251,6 @@ const ViewWorkflowHistory = () => {
                     )}
                   </div>
                   <div className="px-3 py-2 text-xs text-gray-500" >
-
                     <div className="flex items-center mb-1 h-[22px] font-medium uppercase">{t('workflow.changeHistory.hint')}</div>
                     <div className="mb-1 text-gray-700 leading-[18px]">{t('workflow.changeHistory.hintText')}</div>
                   </div>
