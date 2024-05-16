@@ -335,7 +335,7 @@ const WorkflowWrap = memo(() => {
   return (
     <ReactFlowProvider>
       <WorkflowHistoryProvider
-        nodes={nodesData as any[]}
+        nodes={nodesData}
         edges={edgesData} >
         <FeaturesProvider features={initialFeatures}>
           <Workflow
