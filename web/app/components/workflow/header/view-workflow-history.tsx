@@ -119,7 +119,7 @@ const ViewWorkflowHistory = () => {
         <PortalToFollowElemTrigger onClick={() => !nodesReadOnly && setOpen(v => !v)}>
           <TooltipPlus
             triggerMethod={nodesReadOnly ? 'click' : 'hover'}
-            popupContent={!nodesReadOnly && t('workflow.common.changeHistory')}
+            popupContent={!nodesReadOnly && t('workflow.changeHistory.title')}
           >
             <div
               className={`
@@ -145,7 +145,7 @@ const ViewWorkflowHistory = () => {
             }}
           >
             <div className='sticky top-0 bg-white flex items-center justify-between px-4 pt-3 text-base font-semibold text-gray-900'>
-              <div className='grow'>{t('workflow.common.changeHistory')}</div>
+              <div className='grow'>{t('workflow.changeHistory.title')}</div>
               <div
                 className='shrink-0 flex items-center justify-center w-6 h-6 cursor-pointer'
                 onClick={() => {
@@ -165,12 +165,11 @@ const ViewWorkflowHistory = () => {
                       <div className='py-12'>
                         <ChangeHistory className='mx-auto mb-2 w-8 h-8 text-gray-300' />
                         <div className='text-center text-[13px] text-gray-400'>
-                          {'You haven\'t changed anything yet'}
+                          {t('workflow.changeHistory.placeholder')}
                         </div>
                       </div>
                     )
                   }
-
                   <div className='flex flex-col'>
                     {
                       calculateChangeList.futureStates.map((item: ChangeHistoryEntry, index: number) => (
@@ -218,7 +217,7 @@ const ViewWorkflowHistory = () => {
                                 item?.index === calculateChangeList.statesCount - 1 && 'text-primary-600',
                               )}
                             >
-                              {item?.label || 'Session Start'}  {calculateStepLabel(item?.index)}
+                              {item?.label || 'Session Start'} {calculateStepLabel(item?.index)}
                             </div>
                           </div>
                         </div>
@@ -243,7 +242,7 @@ const ViewWorkflowHistory = () => {
                                 'flex items-center text-[13px] font-medium leading-[18px]',
                               )}
                             >
-                         Clear History
+                              {t('workflow.changeHistory.clearHistory')}
                             </div>
                           </div>
                         </div>
@@ -253,8 +252,8 @@ const ViewWorkflowHistory = () => {
                   </div>
                   <div className="px-3 py-2 text-xs text-gray-500" >
 
-                    <div className="flex items-center mb-1 h-[22px] font-medium">HINT</div>
-                    <div className="mb-1 text-gray-700 leading-[18px]" >Your editing actions are tracked in a local history, which is stored on your device for the duration of this session. This history will be cleared when you leave the editor.</div>
+                    <div className="flex items-center mb-1 h-[22px] font-medium uppercase">{t('workflow.changeHistory.hint')}</div>
+                    <div className="mb-1 text-gray-700 leading-[18px]">{t('workflow.changeHistory.hintText')}</div>
                   </div>
                 </div>
               )

@@ -1,5 +1,7 @@
 const translation = {
   common: {
+    undo: '復原',
+    redo: '重做',
     editing: '編輯中',
     autoSaved: '自動儲存',
     unpublished: '未釋出',
@@ -49,6 +51,13 @@ const translation = {
     processData: '資料處理',
     input: '輸入',
     output: '輸出',
+  },
+  changeHistory: {
+    title: '變更履歷',
+    placeholder: '尚未更改任何內容',
+    clearHistory: '清除歷史記錄',
+    hint: '提示',
+    hintText: '您的編輯操作將被跟踪並存儲在您的設備上，直到您離開編輯器。此歷史記錄將在您離開編輯器時被清除。',
   },
   errorMsg: {
     fieldRequired: '{{field}} 不能為空',

@@ -52,6 +52,13 @@ const translation = {
     input: 'Entrada',
     output: 'Saída',
   },
+  changeHistory: {
+    title: 'Histórico de alterações',
+    placeholder: 'Você ainda não alterou nada',
+    clearHistory: 'Limpar histórico',
+    hint: 'Dica',
+    hintText: 'As ações de edição são rastreadas em um histórico de alterações, que é armazenado em seu dispositivo para a duração desta sessão. Este histórico será apagado quando você sair do editor.',
+  },
   errorMsg: {
     fieldRequired: '{{field}} é obrigatório',
     authRequired: 'Autorização é necessária',

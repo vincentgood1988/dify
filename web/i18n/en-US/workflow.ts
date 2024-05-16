@@ -64,6 +64,13 @@ const translation = {
     pointerMode: 'Pointer Mode',
     handMode: 'Hand Mode',
   },
+  changeHistory: {
+    title: 'Change History',
+    placeholder: 'You haven\'t changed anything yet',
+    clearHistory: 'Clear History',
+    hint: 'Hint',
+    hintText: 'Your editing actions are tracked in a change history, which is stored on your device for the duration of this session. This history will be cleared when you leave the editor.',
+  },
   errorMsg: {
     fieldRequired: '{{field}} is required',
     authRequired: 'Authorization is required',

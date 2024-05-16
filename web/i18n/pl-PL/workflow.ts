@@ -55,6 +55,13 @@ const translation = {
     enableJinja: 'Włącz wsparcie dla szablonów Jinja',
     learnMore: 'Czytaj więcej',
   },
+  changeHistory: {
+    title: 'Historia Zmian',
+    placeholder: 'Nie dokonano jeszcze żadnych zmian',
+    clearHistory: 'Wyczyść Historię',
+    hint: 'Wskazówka',
+    hintText: 'Działania edycji są śledzone w historii zmian, która jest przechowywana na urządzeniu przez czas trwania tej sesji. Ta historia zostanie usunięta po opuszczeniu edytora.',
+  },
   errorMsg: {
     fieldRequired: '{{field}} jest wymagane',
     authRequired: 'Autoryzacja jest wymagana',

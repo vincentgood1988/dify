@@ -52,6 +52,13 @@ const translation = {
     input: '入力',
     output: '出力',
   },
+  changeHistory: {
+    title: '変更履歴',
+    placeholder: 'まだ何も変更していません',
+    clearHistory: '履歴をクリア',
+    hint: 'ヒント',
+    hintText: '編集アクションは変更履歴に記録され、このセッションの間にデバイスに保存されます。エディターを終了すると、この履歴は消去されます。',
+  },
   errorMsg: {
     fieldRequired: '{{field}}は必須です',
     authRequired: '認証が必要です',

@@ -49,6 +49,13 @@ const translation = {
     },
     insertVarTip: 'Drücken Sie die \'/\' Taste, um schnell einzufügen',
   },
+  changeHistory: {
+    title: 'Änderungsverlauf',
+    placeholder: 'Du hast noch nichts geändert',
+    clearHistory: 'Änderungsverlauf löschen',
+    hint: 'Hinweis',
+    hintText: 'Änderungen werden im Änderungsverlauf aufgezeichnet, der für die Dauer dieser Sitzung auf Ihrem Gerät gespeichert wird. Dieser Verlauf wird gelöscht, wenn Sie den Editor verlassen.',
+  },
   errorMsg: {
     fieldRequired: '{{field}} wird benötigt',
     authRequired: 'Autorisierung erforderlich',

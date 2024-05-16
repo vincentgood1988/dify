@@ -2,6 +2,13 @@ const translation = {
   common: {
     undo: 'Hoàn tác',
     redo: 'Làm lại',
+    changeHistory: {
+      title: 'Lịch sử thay đổi',
+      placeholder: 'Bạn chưa thay đổi gì cả',
+      clearHistory: 'Xóa lịch sử',
+      hint: 'Gợi ý',
+      hintText: 'Các hành động chỉnh sửa của bạn được theo dõi trong lịch sử thay đổi, được lưu trên thiết bị của bạn trong suốt phiên làm việc này. Lịch sử này sẽ bị xóa khi bạn thoát khỏi trình soạn thảo.',
+    },
     editing: 'Chỉnh sửa',
     autoSaved: 'Tự động lưu',
     unpublished: 'Chưa xuất bản',

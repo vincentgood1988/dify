@@ -63,6 +63,13 @@ const translation = {
     pointerMode: '指针模式',
     handMode: '手模式',
   },
+  changeHistory: {
+    title: '变更履历',
+    placeholder: '尚未更改任何内容',
+    clearHistory: '清除历史记录',
+    hint: '提示',
+    hintText: '您的编辑操作将被跟踪并存储在您的设备上，直到您离开编辑器。此历史记录将在您离开编辑器时被清除。',
+  },
   errorMsg: {
     fieldRequired: '{{field}} 不能为空',
     authRequired: '请先授权',
