@@ -141,7 +141,7 @@ const ViewWorkflowHistory = () => {
         </PortalToFollowElemTrigger>
         <PortalToFollowElemContent className='z-[12]'>
           <div
-            className='flex flex-col ml-2 w-[240px] bg-white border-[0.5px] border-gray-200 shadow-xl rounded-xl overflow-y-auto'
+            className='flex flex-col ml-2 min-w-[240px] max-w-[360px] bg-white border-[0.5px] border-gray-200 shadow-xl rounded-xl overflow-y-auto'
             style={{
               maxHeight: 'calc(2 / 3 * 100vh)',
             }}
@@ -252,7 +252,7 @@ const ViewWorkflowHistory = () => {
 
                     )}
                   </div>
-                  <div className="px-3 py-2 text-xs text-gray-500" >
+                  <div className="px-3 w-[240px] py-2 text-xs text-gray-500" >
                     <div className="flex items-center mb-1 h-[22px] font-medium uppercase">{t('workflow.changeHistory.hint')}</div>
                     <div className="mb-1 text-gray-700 leading-[18px]">{t('workflow.changeHistory.hintText')}</div>
                   </div>
