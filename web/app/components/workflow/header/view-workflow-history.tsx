@@ -121,7 +121,7 @@ const ViewWorkflowHistory = () => {
         <PortalToFollowElemTrigger onClick={() => !nodesReadOnly && setOpen(v => !v)}>
           <TooltipPlus
             triggerMethod={nodesReadOnly ? 'click' : 'hover'}
-            popupContent={!nodesReadOnly && t('workflow.changeHistory.title')}
+            popupContent={t('workflow.changeHistory.title')}
           >
             <div
               className={`
