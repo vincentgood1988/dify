@@ -1,12 +1,12 @@
 import {
   useCallback,
-  useEffect,
   useRef,
 } from 'react'
-import { type DebouncedFunc, debounce } from 'lodash-es'
+import { debounce } from 'lodash-es'
 import {
   useStoreApi,
 } from 'reactflow'
+import { useTranslation } from 'react-i18next'
 import { useWorkflowHistoryStore } from '../workflow-history-store'
 
 /**
@@ -31,6 +31,7 @@ export enum WorkflowHistoryEvent {
 export const useWorkflowHistory = () => {
   const store = useStoreApi()
   const workflowHistoryStore = useWorkflowHistoryStore()
+  const { t } = useTranslation()
 
   // Some events may be triggered multiple times in a short period of time.
   // We debounce the history state update to avoid creating multiple history states
@@ -68,25 +69,24 @@ export const useWorkflowHistory = () => {
   const getHistoryLabel = useCallback((event: WorkflowHistoryEvent) => {
     switch (event) {
       case WorkflowHistoryEvent.NodeTitleChange:
-        return 'Node Title Change'
+        return t('workflow.changeHistory.nodeTitleChange')
       case WorkflowHistoryEvent.NodeDescriptionChange:
-        return 'Node Description Change'
+        return t('workflow.changeHistory.nodeDescriptionChange')
       case WorkflowHistoryEvent.NodeDragStop:
-        return 'Node Drag'
+        return t('workflow.changeHistory.nodeDragStop')
       case WorkflowHistoryEvent.NodeChange:
-        return 'Node Change'
+        return t('workflow.changeHistory.nodeChange')
       case WorkflowHistoryEvent.NodeConnect:
-        return 'Node Connect'
-      case WorkflowHistoryEvent.NodeAdd:
-        return 'Node Add'
+        return t('workflow.changeHistory.nodeConnect')
       case WorkflowHistoryEvent.NodePaste:
-        return 'Node Paste'
+        return t('workflow.changeHistory.nodePaste')
       case WorkflowHistoryEvent.NodeDelete:
-        return 'Node Delete'
+        return t('workflow.changeHistory.nodeDelete')
+      case WorkflowHistoryEvent.NodeAdd:
+        return t('workflow.changeHistory.nodeAdd')
       case WorkflowHistoryEvent.EdgeDelete:
-        return 'Edge Delete'
       case WorkflowHistoryEvent.EdgeDeleteByDeleteBranch:
-        return 'Edge Delete (by other action)'
+        return t('workflow.changeHistory.edgeDelete')
       default:
         return 'Unknown Event'
     }

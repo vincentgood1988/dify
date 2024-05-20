@@ -78,9 +78,11 @@ const ViewWorkflowHistory = () => {
   const calculateStepLabel = useCallback((index: number) => {
     if (!index)
       return
-    return `(${index < 0 ? index * -1 : index} ${index > 0 ? 'step forward' : 'step back'})`
+
+    const count = index < 0 ? index * -1 : index
+    return `${index > 0 ? t('workflow.changeHistory.stepForward', { count }) : t('workflow.changeHistory.stepBackward', { count })}`
   }
-  , [])
+  , [t])
 
   const calculateChangeList: ChangeHistoryList = useMemo(() => {
     const filterList = (list: any, startIndex = 0, reverse = false) => list.map((state: Partial<WorkflowHistoryState>, index: number) => {
@@ -191,7 +193,7 @@ const ViewWorkflowHistory = () => {
                                 item?.index === currentHistoryStateIndex && 'text-primary-600',
                               )}
                             >
-                              {item?.label || 'Session Start'} {calculateStepLabel(item?.index)} {item?.index === currentHistoryStateIndex && '(current state)'}
+                              {item?.label || t('workflow.changeHistory.sessionStart')} ({calculateStepLabel(item?.index)}{item?.index === currentHistoryStateIndex && t('workflow.changeHistory.currentState')})
                             </div>
                           </div>
                         </div>
@@ -217,7 +219,7 @@ const ViewWorkflowHistory = () => {
                                 item?.index === calculateChangeList.statesCount - 1 && 'text-primary-600',
                               )}
                             >
-                              {item?.label || 'Session Start'} {calculateStepLabel(item?.index)}
+                              {item?.label || t('workflow.changeHistory.sessionStart')} ({calculateStepLabel(item?.index)})
                             </div>
                           </div>
                         </div>
