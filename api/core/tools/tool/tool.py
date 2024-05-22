@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from enum import Enum
 from typing import Any, Optional, Union
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, ConfigDict, validator
 
 from core.app.entities.app_invoke_entities import InvokeFrom
 from core.file.file_obj import FileVar
@@ -26,6 +26,9 @@ class Tool(BaseModel, ABC):
     parameters: Optional[list[ToolParameter]] = None
     description: ToolDescription = None
     is_team_authorization: bool = False
+
+    # pydantic configs
+    model_config = ConfigDict(protected_namespaces=())
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
